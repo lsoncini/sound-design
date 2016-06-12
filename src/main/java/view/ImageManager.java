@@ -33,21 +33,21 @@ public class ImageManager {
 
 	public void initImages() {
 		try{
-			images.put(Hero.class.getName(), ImageUtils.loadImage("resources/heroBase.png"));
-			images.put(SwordDecorator.class.getName(), ImageUtils.loadImage("resources/heroBase.png"));
-			images.put(ShieldDecorator.class.getName(), ImageUtils.loadImage("resources/heroBase.png"));
-			images.put(Cell.class.getName(), ImageUtils.loadImage("resources/floor.png"));
-			images.put("FOG", ImageUtils.loadImage("resources/fog.png"));
-			images.put(Wall.class.getName(), ImageUtils.loadImage("resources/wall.png"));
-			images.put(Blood.class.getName(), ImageUtils.loadImage("resources/blood.png"));
-			images.put(Goblin.class.getName(), ImageUtils.loadImage("resources/goblin.png"));
-			images.put(Golem.class.getName(), ImageUtils.loadImage("resources/golem.png"));
-			images.put(Serpent.class.getName(), ImageUtils.loadImage("resources/Serpent.png"));
-			images.put(HealthBonus.class.getName(), ImageUtils.loadImage("resources/healthbonus.png"));
-			images.put(Sword.class.getName(), ImageUtils.loadImage("resources/sword.png"));
-			images.put(Shield.class.getName(), ImageUtils.loadImage("resources/armor.png"));
-			images.put(AttackBonus.class.getName(), ImageUtils.loadImage("resources/attackbonus.png"));
-			images.put(HealthPotion.class.getName(), ImageUtils.loadImage("resources/healthPotion.png"));
+			images.put(Hero.class.getName(), ImageUtils.loadImage("heroBase.png"));
+			images.put(SwordDecorator.class.getName(), ImageUtils.loadImage("heroBase.png"));
+			images.put(ShieldDecorator.class.getName(), ImageUtils.loadImage("heroBase.png"));
+			images.put(Cell.class.getName(), ImageUtils.loadImage("floor.png"));
+			images.put("FOG", ImageUtils.loadImage("fog.png"));
+			images.put(Wall.class.getName(), ImageUtils.loadImage("wall.png"));
+			images.put(Blood.class.getName(), ImageUtils.loadImage("blood.png"));
+			images.put(Goblin.class.getName(), ImageUtils.loadImage("goblin.png"));
+			images.put(Golem.class.getName(), ImageUtils.loadImage("golem.png"));
+			images.put(Serpent.class.getName(), ImageUtils.loadImage("Serpent.png"));
+			images.put(HealthBonus.class.getName(), ImageUtils.loadImage("healthbonus.png"));
+			images.put(Sword.class.getName(), ImageUtils.loadImage("sword.png"));
+			images.put(Shield.class.getName(), ImageUtils.loadImage("armor.png"));
+			images.put(AttackBonus.class.getName(), ImageUtils.loadImage("attackbonus.png"));
+			images.put(HealthPotion.class.getName(), ImageUtils.loadImage("healthPotion.png"));
 						
 		}
 		catch(Exception e){

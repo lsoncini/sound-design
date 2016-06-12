@@ -1,6 +1,7 @@
 package audio;
 
 import java.io.File;
+import java.io.InputStream;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -9,7 +10,7 @@ import javax.sound.sampled.Clip;
 public class AudioManager {
 	
 	 private static Clip clip;
-	 private static String path= "resources/sounds/";
+	 private static String path= "src/main/resources/";
 	
 	public static void play(String value){        
        try{
@@ -21,4 +22,5 @@ public class AudioManager {
     	   System.err.println( ex.getMessage() );
        }
     }
+
 }
