@@ -9,16 +9,16 @@ import javax.sound.sampled.Clip;
 
 public class AudioManager {
 	
-	 private static Clip clip;
-	 private static String path= "src/main/resources/";
-	
+	private static Clip clip;
+	private static String path= "src/main/resources/";
+
 	public static void play(String value){        
        try{
     	   AudioInputStream myInputStream = AudioSystem.getAudioInputStream(new File(path + value + ".wav"));
     	   clip=AudioSystem.getClip();
     	   clip.open(myInputStream);
     	   clip.start();
-       }catch(Exception ex){
+       } catch(Exception ex){
     	   System.err.println( ex.getMessage() );
        }
     }

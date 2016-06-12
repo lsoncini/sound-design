@@ -22,11 +22,13 @@ public class ImageManager {
 		try{
 			images.put(Rick.class.getName(), ImageUtils.loadImage("rick.png"));
 			images.put(Morty.class.getName(), ImageUtils.loadImage("morty.png"));
-			images.put(SwordDecorator.class.getName(), ImageUtils.loadImage("heroBase.png"));
-			images.put(ShieldDecorator.class.getName(), ImageUtils.loadImage("heroBase.png"));
+			images.put(SwordDecorator.class.getName(), ImageUtils.loadImage("rick.png"));
+			images.put(ShieldDecorator.class.getName(), ImageUtils.loadImage("rick.png"));
 			images.put(Cell.class.getName(), ImageUtils.loadImage("floor.png"));
 			images.put(OrangeGrass.class.getName(), ImageUtils.loadImage("orange_grass.png"));
 			images.put(RedGrass.class.getName(), ImageUtils.loadImage("red_grass.png"));
+			images.put(BlueGrass.class.getName(), ImageUtils.loadImage("blue_grass.png"));
+			images.put(GreyGrass.class.getName(), ImageUtils.loadImage("grey_grass.png"));
 			images.put(GreenGrass.class.getName(), ImageUtils.loadImage("green_grass.png"));
 			images.put(YellowGrass.class.getName(), ImageUtils.loadImage("yellow_grass.png"));
 			images.put(Cactus.class.getName(), ImageUtils.loadImage("cactus.png"));
@@ -41,9 +43,10 @@ public class ImageManager {
 			images.put(Enemy4.class.getName(), ImageUtils.loadImage("enemy4.png"));
 			images.put(Enemy5.class.getName(), ImageUtils.loadImage("enemy5.png"));
 			images.put(HealthBonus.class.getName(), ImageUtils.loadImage("healthbonus.png"));
-			images.put(Sword.class.getName(), ImageUtils.loadImage("sword.png"));
+			images.put(Sword.class.getName(), ImageUtils.loadImage("attackbonus.png"));
 			images.put(Shield.class.getName(), ImageUtils.loadImage("armor.png"));
 			images.put(AttackBonus.class.getName(), ImageUtils.loadImage("attackbonus.png"));
+			images.put(Block.class.getName(), ImageUtils.loadImage("block.png"));
 			images.put(HealthPotion.class.getName(), ImageUtils.loadImage("healthPotion.png"));
 						
 		}

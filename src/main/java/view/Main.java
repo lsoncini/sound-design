@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 import model.Game;
 import model.board.Move;
 import model.board.level.Level1;
+import model.board.level.Level2;
+import model.board.level.Level3;
 
 public class Main extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -27,7 +29,7 @@ public class Main extends JFrame {
 	    Toolkit toolkit = getToolkit();
 	    Dimension size = toolkit.getScreenSize();
 	    this.setContentPane(mainPanel = new MainPanel(game));
-	    this.setSize(mainPanel.getWidth(), mainPanel.getHeight() + 38);
+	    this.setSize(mainPanel.getWidth(), mainPanel.getHeight() + 22);
 	    this.setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
 
 	    addKeyListener(new KeyAdapter() {
@@ -48,7 +50,7 @@ public class Main extends JFrame {
 	}
 	
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException {
-		Main mainWindow = new Main(new Game(Level1.class));
+		Main mainWindow = new Main(new Game(Level3.class));
 		mainWindow.setVisible(true);
 	}
 

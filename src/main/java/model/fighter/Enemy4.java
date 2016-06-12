@@ -10,7 +10,7 @@ import model.fighter.level.EnemyLevel;
 public class Enemy4 extends Enemy {
 
     public Enemy4(int level){
-        super(new EnemyLevel(level, 1, 1));
+        super(new EnemyLevel(level, 0.8, 0.8));
     }
 
     @Override

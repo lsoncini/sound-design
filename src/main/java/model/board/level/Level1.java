@@ -25,16 +25,27 @@ public class Level1 extends Board {
 	 */
 
 
-	private final String content = "...CB....." +
-								   "....M....." +
-								   "....1....." +
-								   "...2......" +
-								   "...V......" +
-								   "...H......" +
-								   ".......P.." +
-								   ".....H...." +
-								   "..3...4..." +
-								   "......5..." ;
+	private final String content = "BBBBBBBBBB" +
+								   "BPB.1.P.1B" +
+								   "B1B.BBBB.B" +
+								   "B.B1ABBB.B" +
+								   "B.BBBBBB.B" +
+								   "B..1.....B" +
+								   "B.BBB.BBBB" +
+								   "B.BMB.BBBB" +
+								   "..B2....HB" +
+								   "BBBBBBBBBB" ;
+
+	private final String floor = "GGGGGGGGGG" +
+ 								 "GYGYYYYYYG" +
+								 "GYGYGGGGYG" +
+								 "GYGYYGGGYG" +
+								 "GYGGGGGGYG" +
+								 "GYYYYYYYYG" +
+								 "GYGGGYGGGG" +
+								 "GYGYGYGGGG" +
+								 "YYGYYYYYYG" +
+								 "GGGGGGGGGG" ;
 
 	@Override
 	protected void setContents() {
@@ -59,7 +70,7 @@ public class Level1 extends Board {
 					c = new Enemy1(1);
 					break;
 				case "2":
-					c = new Enemy2(1);
+					c = new Enemy2(3);
 					break;
 				case "3":
 					c = new Enemy3(2);
@@ -80,7 +91,7 @@ public class Level1 extends Board {
 					c = new HealthPotion();
 					break;
 				case "A":
-					c = new AttackBonus(10);
+					c = new Sword(10);
 					break;
 				default:
 					break;
@@ -93,19 +104,8 @@ public class Level1 extends Board {
 
 	@Override
 	protected Hero createHero() {
-		return new Rick(new HeroFighter(2));
+		return new Rick(new HeroFighter(1));
 	}
-
-	private final String floor = "OOOOOOOOOO" +
-								 "OOOOOOOOOO" +
-								 "OOOOOOOOOO" +
-								 "OOOOOOOOOO" +
-								 "OOOOOOOOOO" +
-								 "OOOGGOOOOO" +
-								 "OOOOOOOOOO" +
-								 "OOOOYYYOOO" +
-								 "RRRRRRRRRR" +
-								 "OOOOOOOOOO" ;
 
 	@Override
 	public Cell getCellForPoint(int x, int y) {
@@ -145,7 +145,7 @@ public class Level1 extends Board {
 	
 	@Override
 	protected Point getHeroInitPosition() {
-		return (new Point (8,8));
+		return (new Point (8,0));
 	}
 
 	@Override
