@@ -4,9 +4,11 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 
+import audio.AudioManager;
 import model.Game;
 import model.board.Move;
 import model.board.level.Level1;
@@ -29,9 +31,15 @@ public class Main extends JFrame {
 	    Toolkit toolkit = getToolkit();
 	    Dimension size = toolkit.getScreenSize();
 	    this.setContentPane(mainPanel = new MainPanel(game));
-	    this.setSize(mainPanel.getWidth(), mainPanel.getHeight() + 22);
+	    this.setSize(mainPanel.getWidth(), mainPanel.getHeight() + 60);
 	    this.setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
 	    this.setJMenuBar(new MenuBar(this));
+	    try {
+			this.setIconImage(ImageUtils.loadImage("logo.png"));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 	    addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e) {
@@ -60,6 +68,10 @@ public class Main extends JFrame {
 		default:
 			return new Game(Level3.class);
 		}
+	}
+	
+	public void resume(){
+		AudioManager.playForLevel("gameStart");
 	}
 
 }

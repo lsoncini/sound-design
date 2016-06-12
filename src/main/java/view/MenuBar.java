@@ -43,6 +43,14 @@ public class MenuBar extends JMenuBar {
 			}
 		});
 		
+		JMenuItem credits = new JMenuItem("Credits");
+		credits.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Credits.run(main);
+			}
+		});
+		
 		JMenuItem close = new JMenuItem("Close");
 		close.addActionListener(new ActionListener() {
 			@Override
@@ -53,6 +61,7 @@ public class MenuBar extends JMenuBar {
 		
 		file.add(playAgain);
 		file.add(mainMenu);
+		file.add(credits);
 		file.add(close);
 
 		this.add(file);

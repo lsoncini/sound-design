@@ -18,7 +18,10 @@ public abstract class Enemy extends GralFighter{
 		hero.injured(this.getStrength());
 		if(hero.isAlive())
 			this.injured(hero.getStrength());
-		else AudioManager.playForLevel("death");
+		else {
+			AudioManager.stop();
+			AudioManager.playForLevel("death");
+		}
 		if(this.isAlive())
 			return this;
 		else {

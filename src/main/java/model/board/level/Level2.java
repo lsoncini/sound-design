@@ -164,7 +164,7 @@ public class Level2 extends Board {
 
     @Override
     public String levelName() {
-        return "Megaseed Land";
+        return "Dimension 35-C";
     }
 
     @Override
