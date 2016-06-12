@@ -1,6 +1,5 @@
 package audio;
 
-import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,17 +9,18 @@ import javax.sound.sampled.Clip;
 
 public class AudioManager {
 
-	 private static Clip clip;
-	 private static String path= "src/main/resources/";
-	 private static String levelSuffix;
-	 private static Set<Clip> loopingClips = new HashSet<Clip>();
+	private static Clip clip;
+	//private static String path= "src/main/resources/";
+	private static String levelSuffix;
+	private static Set<Clip> clips = new HashSet<Clip>();
 
 	public static void play(String value){        
        try{
-    	   AudioInputStream myInputStream = AudioSystem.getAudioInputStream(new File(path + value + ".wav"));
+    	   AudioInputStream myInputStream = AudioSystem.getAudioInputStream(ClassLoader.getSystemResourceAsStream(value + ".wav"));//AudioSystem.getAudioInputStream(AudioManager.class.getResourceAsStream(value + ".wav"));
     	   clip=AudioSystem.getClip();
     	   clip.open(myInputStream);
     	   clip.start();
+    	   clips.add(clip);
        } catch(Exception ex){
     	   System.err.println( ex.getMessage() );
        }
@@ -33,12 +33,12 @@ public class AudioManager {
 	
 	public static void loop(String value){
 		try {
-			AudioInputStream myInputStream = AudioSystem.getAudioInputStream(new File(path + value + ".wav"));
+			AudioInputStream myInputStream = AudioSystem.getAudioInputStream(ClassLoader.getSystemResourceAsStream(value + ".wav"));//new File(path + value + ".wav"));
 			clip = AudioSystem.getClip();
 			clip.open(myInputStream);
 			clip.start();
 			clip.loop(Clip.LOOP_CONTINUOUSLY);
-			loopingClips.add(clip);
+			clips.add(clip);
 		} catch (Exception ex) {
 			System.err.println(ex.getMessage());
 		}
@@ -53,7 +53,7 @@ public class AudioManager {
 		if(clip == null)
 			return;
 		clip.stop();
-		for(Clip c : loopingClips){
+		for(Clip c : clips){
 			c.stop();
 		}
 	}

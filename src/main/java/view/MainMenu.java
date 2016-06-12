@@ -111,6 +111,12 @@ public class MainMenu {
 				try {
 					AudioManager.stop();
 					AudioManager.play("menuButton");
+					try {
+						Thread.sleep(200);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					main = new Main(new Game(levelClass));
 					main.setVisible(true);
 				} catch (InstantiationException e) {
