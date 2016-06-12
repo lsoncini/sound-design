@@ -35,6 +35,21 @@ public class AudioManager {
 	       }
 	}
 	
+	public static void loop(String value){
+		try {
+			AudioInputStream myInputStream = AudioSystem.getAudioInputStream(new File(path + value + ".wav"));
+			clip = AudioSystem.getClip();
+			clip.open(myInputStream);
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+		} catch (Exception ex) {
+			System.err.println(ex.getMessage());
+		}
+	}
+	
+	public static void stop(){
+		clip.stop();
+	}
+	
 	public static void setLevelSuffix(int levelNumber){
 		levelSuffix = "_level" + levelNumber;
 	}

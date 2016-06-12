@@ -17,7 +17,10 @@ import javax.swing.JPanel;
 
 import audio.AudioManager;
 import model.Game;
+import model.board.Board;
 import model.board.level.Level1;
+import model.board.level.Level2;
+import model.board.level.Level3;
 
 public class MainMenu {
 
@@ -55,7 +58,7 @@ public class MainMenu {
 		
 		BufferedImage buttonIconLevel1;
 		try {
-			buttonIconLevel1 = (BufferedImage) ImageUtils.loadImage("level1.jpg");
+			buttonIconLevel1 = (BufferedImage) ImageUtils.loadImage("title.jpg");
 			JButton level1Button = new JButton(new ImageIcon(buttonIconLevel1));
 			level1Button.addMouseListener(levelMouseListener(Level1.class));
 			level1Button.setBorder(BorderFactory.createEmptyBorder());
@@ -69,9 +72,9 @@ public class MainMenu {
 		
 		BufferedImage buttonIconLevel2;
 		try {
-			buttonIconLevel2 = (BufferedImage) ImageUtils.loadImage("level2.jpg");
+			buttonIconLevel2 = (BufferedImage) ImageUtils.loadImage("title.jpg");
 			JButton level2Button = new JButton(new ImageIcon(buttonIconLevel2));
-			level2Button.addMouseListener(levelMouseListener(Level1.class));
+			level2Button.addMouseListener(levelMouseListener(Level2.class));
 			level2Button.setBorder(BorderFactory.createEmptyBorder());
 			level2Button.setContentAreaFilled(false);
 			contentPanel.add(level2Button);
@@ -83,9 +86,9 @@ public class MainMenu {
 		
 		BufferedImage buttonIconLevel3;
 		try {
-			buttonIconLevel3 = (BufferedImage) ImageUtils.loadImage("level3.jpg");
+			buttonIconLevel3 = (BufferedImage) ImageUtils.loadImage("title.jpg");
 			JButton level3Button = new JButton(new ImageIcon(buttonIconLevel3));
-			level3Button.addMouseListener(levelMouseListener(Level1.class));
+			level3Button.addMouseListener(levelMouseListener(Level3.class));
 			level3Button.setBorder(BorderFactory.createEmptyBorder());
 			level3Button.setContentAreaFilled(false);
 			contentPanel.add(level3Button);
@@ -120,14 +123,15 @@ public class MainMenu {
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
+				AudioManager.stop();
+				String levelNumber = levelClass.getCanonicalName().substring(23);
+				AudioManager.loop("level" + levelNumber);				
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
+				AudioManager.stop();
+				AudioManager.play("menu");
 			}
 
 			@Override
