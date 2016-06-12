@@ -4,9 +4,7 @@ import java.awt.Point;
 
 import model.board.Board;
 import model.board.Content;
-import model.board.cell.Cell;
-import model.board.cell.OrangeGrass;
-import model.board.cell.RedGrass;
+import model.board.cell.*;
 import model.element.*;
 import model.fighter.*;
 
@@ -35,15 +33,11 @@ public class Level1 extends Board {
 								   "...H......" +
 								   ".......P.." +
 								   ".....H...." +
-								   ".........." +
-								   ".........." ;
+								   "..3...4..." +
+								   "......5..." ;
 
 	@Override
 	protected void setContents() {
-		/*setWalls();
-		setMorty();
-		setEnemies();
-		setMisc();*/
 
 		for(int i = 0; i<(SIZE*SIZE); i++) {
 			Content c = null;
@@ -65,10 +59,19 @@ public class Level1 extends Board {
 					c = new Enemy1(1);
 					break;
 				case "2":
-					c = new Enemy2(2);
+					c = new Enemy2(1);
+					break;
+				case "3":
+					c = new Enemy3(2);
+					break;
+				case "4":
+					c = new Enemy4(1);
+					break;
+				case "5":
+					c = new Enemy5(2);
 					break;
 				case "V":
-					c = new EvilRick(2);
+					c = new EvilRick(3);
 					break;
 				case "H":
 					c = new HealthBonus(10);
@@ -90,28 +93,7 @@ public class Level1 extends Board {
 
 	@Override
 	protected Hero createHero() {
-		return new Rick(new HeroFighter());
-	}
-
-	protected void setWalls()
-	{
-		add(new Cactus(), 0, 0);
-	}
-	
-	protected void setEnemies()
-	{
-		add (new EvilRick(2), 9,9);
-	}
-	
-	protected void setMisc() {
-
-	}
-
-	protected void setMorty() {
-
-		this.morty = new Morty();
-		add(this.morty, 2 , 2);
-
+		return new Rick(new HeroFighter(2));
 	}
 
 	private final String floor = "OOOOOOOOOO" +
@@ -119,9 +101,9 @@ public class Level1 extends Board {
 								 "OOOOOOOOOO" +
 								 "OOOOOOOOOO" +
 								 "OOOOOOOOOO" +
+								 "OOOGGOOOOO" +
 								 "OOOOOOOOOO" +
-								 "OOOOOOOOOO" +
-								 "OOOOOOOOOO" +
+								 "OOOOYYYOOO" +
 								 "RRRRRRRRRR" +
 								 "OOOOOOOOOO" ;
 
@@ -140,6 +122,12 @@ public class Level1 extends Board {
 				break;
 			case "R":
 				returnCell = new RedGrass();
+				break;
+			case "G":
+				returnCell = new GreenGrass();
+				break;
+			case "Y":
+				returnCell = new YellowGrass();
 				break;
 			default:
 				returnCell = new Cell();

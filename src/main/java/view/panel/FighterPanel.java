@@ -28,7 +28,7 @@ public class FighterPanel extends JPanel {
 		
 		healthBar = new JProgressBar(0, fighter.getMaxHealth());
 		healthBar.setForeground(Color.RED);
-		healthBar.setBounds(80,48,100,15);
+		healthBar.setBounds(80,58,100,15);
 		healthBar.setStringPainted(true);
 		healthBar.setValue(fighter.getHealth());
 		this.add(healthBar);
@@ -48,9 +48,9 @@ public class FighterPanel extends JPanel {
 		Font plain=new Font("Arial", Font.PLAIN, fontSize);
 		g.setFont(plain);
 		g.drawImage(imgManager.get(fighter.getClass().getName()), 10, 5, null);
-		g.drawString("Health: ", 10, 60);
-		g.drawString("Strengh: " + fighter.getStrength(), 10, 80);
-		g.drawString("Level: " + fighter.getLevel().getValue(), 10, 100);
+		g.drawString("Health: ", 10, 70);
+		g.drawString("Strengh: " + fighter.getStrength(), 10, 90);
+		g.drawString("Level: " + fighter.getLevel().getValue(), 10, 110);
 	}
 	
 	protected Fighter getFighter() {

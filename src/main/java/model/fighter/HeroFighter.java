@@ -9,6 +9,11 @@ public class HeroFighter extends GralFighter{
 		level = new HeroLevel(1,10);
 		initialize();
 	}
+
+	public HeroFighter(int l) {
+		level = new HeroLevel(l,10);
+		initialize();
+	}
 	
 	@Override
 	public Content interact(Fighter hero) {

@@ -19,7 +19,7 @@ public class HeroPanel extends FighterPanel {
 		
 		experienceBar = new JProgressBar(0, hero.getMaxExperience());
 		experienceBar.setForeground(Color.GREEN);
-		experienceBar.setBounds(80,108,100,15);
+		experienceBar.setBounds(80,118,100,15);
 		experienceBar.setStringPainted(true);
 		experienceBar.setValue(hero.getExperience());
 		this.add(experienceBar);
@@ -40,7 +40,7 @@ public class HeroPanel extends FighterPanel {
 	public void paint(Graphics g) {
 		super.paint(g);
 		if (!getFighter().hasMaxLevel()) {
-			g.drawString("Experience: ", 10, 120);
+			g.drawString("Experience: ", 10, 130);
 		}
 	}
 }

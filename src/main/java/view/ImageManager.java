@@ -5,10 +5,8 @@ import java.awt.Image;
 import java.util.HashMap;
 import java.util.Map;
 
-import model.board.cell.Cell;
+import model.board.cell.*;
 import model.board.Content;
-import model.board.cell.OrangeGrass;
-import model.board.cell.RedGrass;
 import model.element.*;
 import model.fighter.*;
 
@@ -29,6 +27,8 @@ public class ImageManager {
 			images.put(Cell.class.getName(), ImageUtils.loadImage("floor.png"));
 			images.put(OrangeGrass.class.getName(), ImageUtils.loadImage("orange_grass.png"));
 			images.put(RedGrass.class.getName(), ImageUtils.loadImage("red_grass.png"));
+			images.put(GreenGrass.class.getName(), ImageUtils.loadImage("green_grass.png"));
+			images.put(YellowGrass.class.getName(), ImageUtils.loadImage("yellow_grass.png"));
 			images.put(Cactus.class.getName(), ImageUtils.loadImage("cactus.png"));
 			images.put(Bush.class.getName(), ImageUtils.loadImage("bush.png"));
 			images.put("FOG", ImageUtils.loadImage("fog.png"));
@@ -37,6 +37,9 @@ public class ImageManager {
 			images.put(Enemy1.class.getName(), ImageUtils.loadImage("enemy1.png"));
 			images.put(EvilRick.class.getName(), ImageUtils.loadImage("evil_rick.png"));
 			images.put(Enemy2.class.getName(), ImageUtils.loadImage("enemy2.png"));
+			images.put(Enemy3.class.getName(), ImageUtils.loadImage("enemy3.png"));
+			images.put(Enemy4.class.getName(), ImageUtils.loadImage("enemy4.png"));
+			images.put(Enemy5.class.getName(), ImageUtils.loadImage("enemy5.png"));
 			images.put(HealthBonus.class.getName(), ImageUtils.loadImage("healthbonus.png"));
 			images.put(Sword.class.getName(), ImageUtils.loadImage("sword.png"));
 			images.put(Shield.class.getName(), ImageUtils.loadImage("armor.png"));

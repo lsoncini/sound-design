@@ -51,10 +51,10 @@ public class InfoPanel extends JPanel implements GamePanelListener {
 			Font plain=new Font("Arial", Font.BOLD, 12);
 			g.setFont(plain);
 			if (game.playerWon()) {
-				g.drawString("Game Over - Player WON !!!", 10, 140);
+				g.drawString("Game Over - Player WON !!!", 10, 150);
 				
 			} else {
-				g.drawString("Game Over - Player DIED !!!", 10, 140);
+				g.drawString("Game Over - Player DIED !!!", 10, 150);
 			}
 		}
 	}

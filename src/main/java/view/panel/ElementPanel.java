@@ -34,7 +34,7 @@ public class ElementPanel extends JPanel {
 		g.setFont(plain);
 		g.drawImage(imgManager.get(content.getClass().getName()), 10, 5, null);
 		if (content instanceof Valuable) {
-			g.drawString("Value: " + ((Valuable)content).getValue(), 10, 60);
+			g.drawString("Value: " + ((Valuable)content).getValue(), 10, 70);
 		}
 	}
 
