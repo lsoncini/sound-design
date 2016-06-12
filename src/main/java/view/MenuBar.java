@@ -38,6 +38,7 @@ public class MenuBar extends JMenuBar {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				MainMenu.run();
 				main.setVisible(false);
 			}

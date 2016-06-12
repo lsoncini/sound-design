@@ -1,5 +1,6 @@
 package model.element;
 
+import audio.AudioManager;
 import model.board.Content;
 import model.fighter.Fighter;
 
@@ -18,6 +19,7 @@ public class HealthBonus implements Valuable{
 	@Override
 	public Content interact(Fighter hero) {
 		hero.heal(getValue());
+		AudioManager.play("heal");
 		return hero;
 	}
 

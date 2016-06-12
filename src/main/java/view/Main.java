@@ -27,11 +27,11 @@ public class Main extends JFrame {
 		this.game = game;
 		
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    this.setResizable(true);
+	    this.setResizable(false);
 	    Toolkit toolkit = getToolkit();
 	    Dimension size = toolkit.getScreenSize();
 	    this.setContentPane(mainPanel = new MainPanel(game));
-	    this.setSize(mainPanel.getWidth(), mainPanel.getHeight() + 60);
+	    this.setSize(mainPanel.getWidth(), mainPanel.getHeight() + 50);
 	    this.setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
 	    this.setJMenuBar(new MenuBar(this));
 	    try {
@@ -72,6 +72,7 @@ public class Main extends JFrame {
 	
 	public void resume(){
 		AudioManager.playForLevel("gameStart");
+		AudioManager.loopForLevel("music");
 	}
 
 }

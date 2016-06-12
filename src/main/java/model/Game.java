@@ -13,7 +13,9 @@ public class Game {
 	private Board board;
 	
 	public <T> Game(Class<T> boardClass) throws InstantiationException, IllegalAccessException {
+		AudioManager.stop();
 		this.board = (Board)boardClass.newInstance();
+		AudioManager.loopForLevel("music");;
 	}
 	
 	public void onMove(Move move) {

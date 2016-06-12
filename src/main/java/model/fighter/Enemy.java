@@ -19,7 +19,7 @@ public abstract class Enemy extends GralFighter{
 		if(hero.isAlive())
 			this.injured(hero.getStrength());
 		else {
-			AudioManager.stop();
+			AudioManager.stop();	
 			AudioManager.playForLevel("death");
 		}
 		if(this.isAlive())

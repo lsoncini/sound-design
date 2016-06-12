@@ -96,6 +96,7 @@ public class MainMenu {
 			e.printStackTrace();
 		}
 		
+		AudioManager.stop();
 		mainFrame.setVisible(true);
 		AudioManager.play("menu");
 	}
