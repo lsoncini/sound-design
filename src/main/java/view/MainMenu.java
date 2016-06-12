@@ -36,7 +36,7 @@ public class MainMenu {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		mainFrame.setSize(500, 650);
+		mainFrame.setSize(500, 700);
 		mainFrame.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent windowEvent) {
 				System.exit(0);
@@ -57,7 +57,7 @@ public class MainMenu {
 		
 		BufferedImage buttonIconLevel1;
 		try {
-			buttonIconLevel1 = (BufferedImage) ImageUtils.loadImage("title.jpg");
+			buttonIconLevel1 = (BufferedImage) ImageUtils.loadImage("level1.jpg");
 			JButton level1Button = new JButton(new ImageIcon(buttonIconLevel1));
 			level1Button.addMouseListener(levelMouseListener(Level1.class));
 			level1Button.setBorder(BorderFactory.createEmptyBorder());
@@ -71,7 +71,7 @@ public class MainMenu {
 		
 		BufferedImage buttonIconLevel2;
 		try {
-			buttonIconLevel2 = (BufferedImage) ImageUtils.loadImage("title.jpg");
+			buttonIconLevel2 = (BufferedImage) ImageUtils.loadImage("level2.jpg");
 			JButton level2Button = new JButton(new ImageIcon(buttonIconLevel2));
 			level2Button.addMouseListener(levelMouseListener(Level2.class));
 			level2Button.setBorder(BorderFactory.createEmptyBorder());
@@ -85,7 +85,7 @@ public class MainMenu {
 		
 		BufferedImage buttonIconLevel3;
 		try {
-			buttonIconLevel3 = (BufferedImage) ImageUtils.loadImage("title.jpg");
+			buttonIconLevel3 = (BufferedImage) ImageUtils.loadImage("level3.jpg");
 			JButton level3Button = new JButton(new ImageIcon(buttonIconLevel3));
 			level3Button.addMouseListener(levelMouseListener(Level3.class));
 			level3Button.setBorder(BorderFactory.createEmptyBorder());
