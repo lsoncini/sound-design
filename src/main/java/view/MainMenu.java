@@ -109,6 +109,7 @@ public class MainMenu {
 				Main main;
 				try {
 					AudioManager.stop();
+					AudioManager.play("menuButton");
 					main = new Main(new Game(levelClass));
 					main.setVisible(true);
 				} catch (InstantiationException e) {
