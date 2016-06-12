@@ -17,7 +17,6 @@ import javax.swing.JPanel;
 
 import audio.AudioManager;
 import model.Game;
-import model.board.Board;
 import model.board.level.Level1;
 import model.board.level.Level2;
 import model.board.level.Level3;
@@ -97,8 +96,8 @@ public class MainMenu {
 			e.printStackTrace();
 		}
 		
-		
 		mainFrame.setVisible(true);
+		AudioManager.play("menu");
 	}
 
 	private static MouseListener levelMouseListener(final Class<?> levelClass) {
@@ -109,6 +108,7 @@ public class MainMenu {
 			public void mouseClicked(MouseEvent arg0) {
 				Main main;
 				try {
+					AudioManager.stop();
 					main = new Main(new Game(levelClass));
 					main.setVisible(true);
 				} catch (InstantiationException e) {
@@ -123,15 +123,13 @@ public class MainMenu {
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				AudioManager.stop();
-				String levelNumber = levelClass.getCanonicalName().substring(23);
-				AudioManager.loop("level" + levelNumber);				
+				// TODO Auto-generated method stub
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				AudioManager.stop();
-				AudioManager.play("menu");
+				// TODO Auto-generated method stub
+				
 			}
 
 			@Override
@@ -150,6 +148,5 @@ public class MainMenu {
 	
 	public static void main(String[] args) {
 		MainMenu.run();
-		AudioManager.play("menu");
 	}
 }

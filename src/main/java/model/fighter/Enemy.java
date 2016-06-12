@@ -14,11 +14,11 @@ public abstract class Enemy extends GralFighter{
 	
 	@Override
 	public Content interact(Fighter hero) {
-		AudioManager.play("fight");
+		AudioManager.playForLevel("fight");
 		hero.injured(this.getStrength());
 		if(hero.isAlive())
 			this.injured(hero.getStrength());
-		else AudioManager.play("death");
+		else AudioManager.playForLevel("death");
 		if(this.isAlive())
 			return this;
 		else {

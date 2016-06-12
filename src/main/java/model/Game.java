@@ -14,7 +14,6 @@ public class Game {
 	
 	public <T> Game(Class<T> boardClass) throws InstantiationException, IllegalAccessException {
 		this.board = (Board)boardClass.newInstance();
-		AudioManager.setLevelSuffix(this.board.levelNumber());
 	}
 	
 	public void onMove(Move move) {
@@ -47,6 +46,10 @@ public class Game {
 	
 	public String getLevelName(){
 		return board.levelName();
+	}
+	
+	public int getLevelNumber(){
+		return board.levelNumber();
 	}
 	
 }

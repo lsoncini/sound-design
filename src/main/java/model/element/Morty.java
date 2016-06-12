@@ -1,5 +1,6 @@
 package model.element;
 
+import audio.AudioManager;
 import model.board.Content;
 import model.fighter.Fighter;
 
@@ -18,6 +19,7 @@ public class Morty implements Content {
     @Override
     public Content interact(Fighter hero) {
         this.found = true;
+        AudioManager.play("wubba");
         return this;
     }
 

@@ -31,6 +31,7 @@ public class Main extends JFrame {
 	    this.setContentPane(mainPanel = new MainPanel(game));
 	    this.setSize(mainPanel.getWidth(), mainPanel.getHeight() + 22);
 	    this.setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
+	    this.setJMenuBar(new MenuBar(this));
 
 	    addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e) {
@@ -49,9 +50,16 @@ public class Main extends JFrame {
 		});
 	}
 	
-	public static void main(String[] args) throws InstantiationException, IllegalAccessException {
-		Main mainWindow = new Main(new Game(Level3.class));
-		mainWindow.setVisible(true);
+	public Game restart() throws InstantiationException, IllegalAccessException{
+		int levelNumber = game.getLevelNumber();
+		switch (levelNumber) {
+		case 1:
+			return new Game(Level1.class);
+		case 2:
+			return new Game(Level2.class);
+		default:
+			return new Game(Level3.class);
+		}
 	}
 
 }

@@ -19,7 +19,8 @@ public abstract class Board {
 	
 	public Board() {
 		initialize();
-		AudioManager.play("gameStart");
+		AudioManager.setLevelSuffix(levelNumber());
+		AudioManager.playForLevel("gameStart");
 	}
 	
 	public void initialize() {
@@ -46,7 +47,7 @@ public abstract class Board {
 					heroPosition = newPosition;
 					heroMoveListener();
 					cleanFog(heroPosition);
-					AudioManager.play("general");
+					AudioManager.playForLevel("step");
 				} else if (g[newPosition.y][newPosition.x].canInteract()) {
 					g[newPosition.y][newPosition.x].interact(getHero());
 				}
