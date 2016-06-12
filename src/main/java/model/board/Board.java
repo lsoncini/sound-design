@@ -5,14 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import audio.AudioManager;
-
-
 import model.board.cell.Cell;
-import model.board.cell.OrangeGrass;
-import model.element.Morty;
 import model.fighter.Enemy;
 import model.fighter.Hero;
-import model.fighter.HeroFighter;
 
 public abstract class Board {
 	
@@ -104,4 +99,8 @@ public abstract class Board {
 	public abstract boolean gameOver();
 	
 	public abstract boolean playerWon();
+
+	public abstract String levelName();
+	
+	public abstract int levelNumber();
 }

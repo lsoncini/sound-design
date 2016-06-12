@@ -10,6 +10,7 @@ public class AudioManager {
 	
 	 private static Clip clip;
 	 private static String path= "src/main/resources/";
+	 private static String levelSuffix;
 	
 	public static void play(String value){        
        try{
@@ -21,5 +22,21 @@ public class AudioManager {
     	   System.err.println( ex.getMessage() );
        }
     }
+	
+	public static void playForLevel(String value){
+		String levelValue = value + levelSuffix;
+		try{
+	    	   AudioInputStream myInputStream = AudioSystem.getAudioInputStream(new File(path + levelValue + ".wav"));
+	    	   clip=AudioSystem.getClip();
+	    	   clip.open(myInputStream);
+	    	   clip.start();
+	       }catch(Exception ex){
+	    	   System.err.println( ex.getMessage() );
+	       }
+	}
+	
+	public static void setLevelSuffix(int levelNumber){
+		levelSuffix = "_level" + levelNumber;
+	}
 
 }
