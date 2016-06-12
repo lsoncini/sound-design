@@ -19,6 +19,7 @@ public class Morty implements Content {
     @Override
     public Content interact(Fighter hero) {
         this.found = true;
+        AudioManager.stop();
         AudioManager.play("wubba");
         return this;
     }
