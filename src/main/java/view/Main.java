@@ -20,7 +20,7 @@ public class Main extends JFrame {
 	private MainPanel mainPanel;
 	
 	public Main(Game game) {
-		super("Rick and Morty");
+		super("Rick and Morty: " + game.getLevelName() + " - Developed by TEAM RAPTOR");
 		
 		this.game = game;
 		

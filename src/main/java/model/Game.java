@@ -2,6 +2,7 @@ package model;
 
 import java.awt.Point;
 
+import audio.AudioManager;
 import model.board.Board;
 import model.board.cell.Cell;
 import model.board.Move;
@@ -12,7 +13,8 @@ public class Game {
 	private Board board;
 	
 	public <T> Game(Class<T> boardClass) throws InstantiationException, IllegalAccessException {
-		this.board = (Board)boardClass.newInstance();		
+		this.board = (Board)boardClass.newInstance();
+		AudioManager.setLevelSuffix(this.board.levelNumber());
 	}
 	
 	public void onMove(Move move) {
@@ -41,6 +43,10 @@ public class Game {
 	
 	public boolean playerWon() {
 		return board.playerWon();
+	}
+	
+	public String getLevelName(){
+		return board.levelName();
 	}
 	
 }

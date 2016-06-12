@@ -4,9 +4,22 @@ import java.awt.Point;
 
 import model.board.Board;
 import model.board.Content;
-import model.board.cell.*;
+import model.board.cell.Cell;
+import model.board.cell.GreenGrass;
+import model.board.cell.OrangeGrass;
+import model.board.cell.RedGrass;
+import model.board.cell.YellowGrass;
 import model.element.*;
-import model.fighter.*;
+import model.fighter.Enemy;
+import model.fighter.Enemy1;
+import model.fighter.Enemy2;
+import model.fighter.Enemy3;
+import model.fighter.Enemy4;
+import model.fighter.Enemy5;
+import model.fighter.EvilRick;
+import model.fighter.Hero;
+import model.fighter.HeroFighter;
+import model.fighter.Rick;
 
 public class Level1 extends Board {
 
@@ -156,6 +169,16 @@ public class Level1 extends Board {
 	@Override
 	public boolean playerWon() {
 		return this.morty.isFound();
+	}
+
+	@Override
+	public String levelName() {
+		return "Earth";
+	}
+	
+	@Override
+	public int levelNumber() {
+		return 1;
 	}
 	
 }

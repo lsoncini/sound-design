@@ -172,4 +172,14 @@ public class Level3 extends Board {
         return this.morty.isFound();
     }
 
+    @Override
+    public String levelName() {
+        return "Evil Rick's Headquarters";
+    }
+
+    @Override
+    public int levelNumber() {
+        return 3;
+    }
+
 }

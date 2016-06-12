@@ -162,4 +162,14 @@ public class Level2 extends Board {
         return this.morty.isFound();
     }
 
+    @Override
+    public String levelName() {
+        return "Megaseed Land";
+    }
+
+    @Override
+    public int levelNumber() {
+        return 2;
+    }
+
 }
