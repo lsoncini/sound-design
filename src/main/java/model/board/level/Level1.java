@@ -4,91 +4,149 @@ import java.awt.Point;
 
 import model.board.Board;
 import model.board.Content;
-import model.element.AttackBonus;
-import model.element.HealthBonus;
-import model.element.HealthPotion;
-import model.element.Shield;
-import model.element.Sword;
-import model.element.Wall;
-import model.fighter.Enemy;
-import model.fighter.Goblin;
-import model.fighter.Golem;
-import model.fighter.Serpent;
+import model.board.cell.Cell;
+import model.board.cell.OrangeGrass;
+import model.board.cell.RedGrass;
+import model.element.*;
+import model.fighter.*;
 
-public class Level1 extends Board{
-	
+public class Level1 extends Board {
+
+	private Morty morty;
+
+	/*
+	 * C CACTUS
+	 * B BUSH
+	 * M MORTY
+	 * 1..5 ENEMY 1..5
+	 * V EVIL RICK
+	 * H HEALTH BONUS
+	 * P HEALTH POTION
+	 * A ATTACK BONUS
+	 * . nothing
+	 */
+
+
+	private final String content = "...CB....." +
+								   "....M....." +
+								   "....1....." +
+								   "...2......" +
+								   "...V......" +
+								   "...H......" +
+								   ".......P.." +
+								   ".....H...." +
+								   ".........." +
+								   ".........." ;
+
 	@Override
 	protected void setContents() {
-		setWalls();
+		/*setWalls();
+		setMorty();
 		setEnemies();
-		setMisc();
+		setMisc();*/
+
+		for(int i = 0; i<(SIZE*SIZE); i++) {
+			Content c = null;
+
+			String character = Character.toString(content.charAt(i));
+
+			switch (character) {
+				case "C":
+					c = new Cactus();
+					break;
+				case "B":
+					c = new Bush();
+					break;
+				case "M":
+					this.morty = new Morty();
+					c = this.morty;
+					break;
+				case "1":
+					c = new Enemy1(1);
+					break;
+				case "2":
+					c = new Enemy2(2);
+					break;
+				case "V":
+					c = new EvilRick(2);
+					break;
+				case "H":
+					c = new HealthBonus(10);
+					break;
+				case "P":
+					c = new HealthPotion();
+					break;
+				case "A":
+					c = new AttackBonus(10);
+					break;
+				default:
+					break;
+			}
+
+			if (c != null)
+				add(c, i/SIZE, i%SIZE);
+		}
+	}
+
+	@Override
+	protected Hero createHero() {
+		return new Rick(new HeroFighter());
 	}
 
 	protected void setWalls()
 	{
-		add (new Wall(),11,10); add (new Wall(),2,9);
-		add (new Wall(),9,9);  add (new Wall(),1,9);
-		add (new Wall(),9,10); add (new Wall(),7,8);
-		add (new Wall(),9,11); add (new Wall(),7,7);
-		add (new Wall(),7,9);  add (new Wall(),7,3);
-		add (new Wall(),7,10); add (new Wall(),6,8);
-		add (new Wall(),7,11); add (new Wall(),5,8);
-		add (new Wall(),6,10); add (new Wall(),4,8);
-		add (new Wall(),5,10); add (new Wall(),3,7);
-		add (new Wall(),4,10); add (new Wall(),7,4);
-		add (new Wall(),3,10); add (new Wall(),7,5);
-		add (new Wall(),2,10); add (new Wall(),7,7);
-		add (new Wall(),8,7);  add (new Wall(),8,5);
-		add (new Wall(),9,7);  add (new Wall(),8,3);
-		add (new Wall(),9,5);  add (new Wall(),5,6);
-		add (new Wall(),9,4);  add (new Wall(),5,5);
-		add (new Wall(),9,3);  add (new Wall(),5,4);
-		add (new Wall(),5,3);  add (new Wall(),5,2);
-		add (new Wall(),3,6);  add (new Wall(),11,2);
-		add (new Wall(),3,5);  add (new Wall(),10,1);
-		add (new Wall(),3,4);  add (new Wall(),11,9);
-		add (new Wall(),3,3);  add (new Wall(),8,2);
-		add (new Wall(),3,2);  add (new Wall(),8,1);
-		add (new Wall(),8,0);  add (new Wall(),5,1);
-		add (new Wall(),6,1);  add (new Wall(),1,0);
-		add (new Wall(),2,0);  add (new Wall(),1,9);
-		add (new Wall(),1,8);  add (new Wall(),1,5); 
-		add (new Wall(),1,7);  add (new Wall(),1,4);
-		add (new Wall(),1,6);  add (new Wall(),1,3);
-		add (new Wall(),3,0);  add (new Wall(),1,1);
+		add(new Cactus(), 0, 0);
 	}
 	
 	protected void setEnemies()
 	{
-		add (new Golem(2),10,9);
-		add (new Golem(4),10,11);
-		add (new Goblin (1),8,9);
-		add (new Goblin (2),3,8);
-		add (new Serpent(1),9,8);
-		add (new Serpent(4),5,9);
-		add (new Serpent(1),11,5);
-		add (new Serpent(1),11,0);
-		add (new Goblin(1),10,5);
-		add (new Goblin(1),10,0);
-		add (new Golem(2),9,6);
-		add (new Golem(7),6,11);
-		add (new Goblin(3),4,5);
-		add (new Goblin(3),0,7);
-		add (new Serpent(5),0,1);
-		add (new Serpent(6),0,9);
+		add (new EvilRick(2), 9,9);
 	}
 	
-	protected void setMisc()
-	{
-		add (new HealthBonus(20),3,9);
-		add (new Shield(),11,11);
-		add (new Shield(),6,9);
-		add (new Shield(),0,0);
-		add (new Sword(100),8,4);
-		add (new Sword(10),10,10);
-		add (new AttackBonus(10),11,1);
-		add (new HealthPotion(),0,11);
-		add (new Sword(10),6,0);
+	protected void setMisc() {
+
+	}
+
+	protected void setMorty() {
+
+		this.morty = new Morty();
+		add(this.morty, 2 , 2);
+
+	}
+
+	private final String floor = "OOOOOOOOOO" +
+								 "OOOOOOOOOO" +
+								 "OOOOOOOOOO" +
+								 "OOOOOOOOOO" +
+								 "OOOOOOOOOO" +
+								 "OOOOOOOOOO" +
+								 "OOOOOOOOOO" +
+								 "OOOOOOOOOO" +
+								 "RRRRRRRRRR" +
+								 "OOOOOOOOOO" ;
+
+	@Override
+	public Cell getCellForPoint(int x, int y) {
+
+		int index = x * SIZE + y;
+
+		String character = Character.toString(floor.charAt(index));
+
+		Cell returnCell = null;
+
+		switch (character) {
+			case "O":
+				returnCell = new OrangeGrass();
+				break;
+			case "R":
+				returnCell = new RedGrass();
+				break;
+			default:
+				returnCell = new Cell();
+				break;
+		}
+
+		return returnCell;
 	}
 	
 	private void add(Content c,int x, int y){
@@ -99,7 +157,7 @@ public class Level1 extends Board{
 	
 	@Override
 	protected Point getHeroInitPosition() {
-		return (new Point (8,11));
+		return (new Point (8,8));
 	}
 
 	@Override
@@ -109,10 +167,7 @@ public class Level1 extends Board{
 
 	@Override
 	public boolean playerWon() {
-		boolean enemiesAlive = false;
-		for(Enemy e : enemyList)
-			enemiesAlive |= e.isAlive();
- 		return !enemiesAlive;
+		return this.morty.isFound();
 	}
 	
 }

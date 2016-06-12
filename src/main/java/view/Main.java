@@ -18,7 +18,7 @@ public class Main extends JFrame {
 	private MainPanel mainPanel;
 	
 	public Main(Game game) {
-		super("My Desktop Dungeon");
+		super("Rick and Morty");
 		
 		this.game = game;
 		

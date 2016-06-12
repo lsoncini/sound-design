@@ -3,7 +3,7 @@ package model;
 import java.awt.Point;
 
 import model.board.Board;
-import model.board.Cell;
+import model.board.cell.Cell;
 import model.board.Move;
 import model.fighter.Hero;
 

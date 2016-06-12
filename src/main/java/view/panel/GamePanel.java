@@ -9,7 +9,7 @@ import java.awt.event.MouseMotionAdapter;
 import javax.swing.JPanel;
 
 import model.Game;
-import model.board.Cell;
+import model.board.cell.Cell;
 import view.ImageManager;
 
 public class GamePanel extends JPanel {

@@ -7,13 +7,16 @@ import java.util.List;
 import audio.AudioManager;
 
 
+import model.board.cell.Cell;
+import model.board.cell.OrangeGrass;
+import model.element.Morty;
 import model.fighter.Enemy;
 import model.fighter.Hero;
 import model.fighter.HeroFighter;
 
 public abstract class Board {
 	
-	public static final int SIZE = 12;
+	public static final int SIZE = 10;
 	
 	private Cell[][] g = new Cell[SIZE][SIZE];
 	private Point heroPosition;
@@ -27,15 +30,15 @@ public abstract class Board {
 	public void initialize() {
 		for (int x = 0; x < SIZE; x++) {
 			for (int y = 0; y < SIZE; y++) {
-				g[y][x] = new Cell();
+				g[y][x] = getCellForPoint(x, y);
 			}
 		}
 		
 		setContents();
 		heroPosition = getHeroInitPosition();
-		g()[heroPosition.y][heroPosition.x].setContent(new Hero(new HeroFighter()));
+		g()[heroPosition.y][heroPosition.x].setContent(createHero());
 		cleanFog(heroPosition);
-	}	
+	}
 
 	public void heroMove(Move move) {
 		if (!gameOver()) {
@@ -51,7 +54,6 @@ public abstract class Board {
 					AudioManager.play("general");
 				} else if (g[newPosition.y][newPosition.x].canInteract()) {
 					g[newPosition.y][newPosition.x].interact(getHero());
-					
 				}
 			}
 		}
@@ -73,6 +75,8 @@ public abstract class Board {
 	public Point getHeroPosition(){
 		return heroPosition;
 	}
+
+	public abstract Cell getCellForPoint(int x, int y);
 	
 	public Cell get(int x, int y) {
 		return g[y][x];
@@ -92,6 +96,8 @@ public abstract class Board {
 	}
 	
 	protected abstract void setContents();
+
+	protected abstract Hero createHero();
 
 	protected abstract Point getHeroInitPosition();
 	

@@ -8,7 +8,7 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 import model.Game;
-import model.board.Cell;
+import model.board.cell.Cell;
 import model.board.Content;
 import model.fighter.Fighter;
 import view.ImageManager;

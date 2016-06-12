@@ -1,5 +1,6 @@
-package model.board;
+package model.board.cell;
 
+import model.board.Content;
 import model.fighter.Fighter;
 
 public class Cell {
@@ -8,7 +9,7 @@ public class Cell {
 	private boolean hasFog;
 	
 	public Cell() {
-		this.hasFog = true;
+		this.hasFog = false;
 	}
 	
 	public void removeFog() {

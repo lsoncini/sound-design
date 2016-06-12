@@ -4,11 +4,11 @@ import model.board.Content;
 import model.element.Blood;
 import model.fighter.level.EnemyLevel;
 
-public class Goblin extends Enemy {
+public class Enemy1 extends Enemy {
 	
 	private int moveCounter = 0;
 
-	public Goblin(int level) {
+	public Enemy1(int level) {
 		super(new EnemyLevel(level, 1, 0.7));
 	}
 

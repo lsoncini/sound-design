@@ -5,23 +5,12 @@ import java.awt.Image;
 import java.util.HashMap;
 import java.util.Map;
 
-import model.board.Cell;
+import model.board.cell.Cell;
 import model.board.Content;
-import model.element.AttackBonus;
-import model.element.Blood;
-import model.element.HealthBonus;
-import model.element.HealthPotion;
-import model.element.Shield;
-import model.element.Sword;
-import model.element.Valuable;
-import model.element.Wall;
-import model.fighter.Fighter;
-import model.fighter.Goblin;
-import model.fighter.Golem;
-import model.fighter.Hero;
-import model.fighter.Serpent;
-import model.fighter.ShieldDecorator;
-import model.fighter.SwordDecorator;
+import model.board.cell.OrangeGrass;
+import model.board.cell.RedGrass;
+import model.element.*;
+import model.fighter.*;
 
 public class ImageManager {
 	
@@ -33,16 +22,21 @@ public class ImageManager {
 
 	public void initImages() {
 		try{
-			images.put(Hero.class.getName(), ImageUtils.loadImage("heroBase.png"));
+			images.put(Rick.class.getName(), ImageUtils.loadImage("rick.png"));
+			images.put(Morty.class.getName(), ImageUtils.loadImage("morty.png"));
 			images.put(SwordDecorator.class.getName(), ImageUtils.loadImage("heroBase.png"));
 			images.put(ShieldDecorator.class.getName(), ImageUtils.loadImage("heroBase.png"));
 			images.put(Cell.class.getName(), ImageUtils.loadImage("floor.png"));
+			images.put(OrangeGrass.class.getName(), ImageUtils.loadImage("orange_grass.png"));
+			images.put(RedGrass.class.getName(), ImageUtils.loadImage("red_grass.png"));
+			images.put(Cactus.class.getName(), ImageUtils.loadImage("cactus.png"));
+			images.put(Bush.class.getName(), ImageUtils.loadImage("bush.png"));
 			images.put("FOG", ImageUtils.loadImage("fog.png"));
 			images.put(Wall.class.getName(), ImageUtils.loadImage("wall.png"));
 			images.put(Blood.class.getName(), ImageUtils.loadImage("blood.png"));
-			images.put(Goblin.class.getName(), ImageUtils.loadImage("goblin.png"));
-			images.put(Golem.class.getName(), ImageUtils.loadImage("golem.png"));
-			images.put(Serpent.class.getName(), ImageUtils.loadImage("Serpent.png"));
+			images.put(Enemy1.class.getName(), ImageUtils.loadImage("enemy1.png"));
+			images.put(EvilRick.class.getName(), ImageUtils.loadImage("evil_rick.png"));
+			images.put(Enemy2.class.getName(), ImageUtils.loadImage("enemy2.png"));
 			images.put(HealthBonus.class.getName(), ImageUtils.loadImage("healthbonus.png"));
 			images.put(Sword.class.getName(), ImageUtils.loadImage("sword.png"));
 			images.put(Shield.class.getName(), ImageUtils.loadImage("armor.png"));

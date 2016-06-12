@@ -1,18 +1,18 @@
 package model.fighter;
 
 import model.board.Content;
-import model.element.Blood;
+import model.element.Sword;
 import model.fighter.level.EnemyLevel;
 
-public class Serpent extends Enemy {
+public class EvilRick extends Enemy {
 
-	public Serpent(int level) {
-		super(new EnemyLevel(level, 1, 1));
+	public EvilRick(int level) {
+		super(new EnemyLevel(level, 1.35, 1));
 	}
 
 	@Override
 	public Content contentLeft() {
-		return new Blood();
+		return new Sword(this.getLevel().getValue());
 	}
 
 	@Override

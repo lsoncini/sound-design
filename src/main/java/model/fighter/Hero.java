@@ -6,7 +6,11 @@ import model.fighter.level.Level;
 public class Hero implements Fighter {
 
 	private Fighter fighter;
-	
+
+	public Hero() {
+
+	}
+
 	public Hero(Fighter fighter) {
 		this.fighter = fighter;
 	}
